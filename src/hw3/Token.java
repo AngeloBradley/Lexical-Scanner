@@ -6,10 +6,6 @@
 
 package hw3;
 
-import static hw3.Type.*;
-
-
-
 public class Token {
     //Properties
     Type type;
