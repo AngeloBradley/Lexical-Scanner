@@ -121,12 +121,8 @@ public class Parser {
         return true;
     }
 
-    private boolean callValidationProcess() {
-        return tokenSetValidation();
-    }
-
     public void ProgramValidationProcess() {
-        System.out.println(callValidationProcess() ? noErrorsDetected : errorDetected);
+        System.out.println(tokenSetValidation() ? noErrorsDetected : errorDetected);
     }
 
     private boolean errorDetected(int errorNum) {
