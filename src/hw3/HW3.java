@@ -14,16 +14,21 @@ public class HW3 {
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<Token> tokenSet = new ArrayList<Token>();
 
-        Tokenizer tokenizer = new Tokenizer();
+        System.out.println("Program 1 Analysis: ");
+        Tokenizer tokenizer1 = new Tokenizer();
+        tokenSet = tokenizer1.setTokenList("program1.txt");
 
-        tokenSet = tokenizer.setTokenList("program1.txt");
+        Parser parser1 = new Parser(tokenSet);
+        parser1.ProgramValidationProcess();
 
-        for (Token each : tokenSet) {
-            System.out.println(each.value + " " + each.type);
-        }
+        System.out.println();
 
-        Parser parser = new Parser(tokenSet);
-        parser.launchValidationProcess();
+        System.out.println("Program 2 Analysis: ");
+        Tokenizer tokenizer2 = new Tokenizer();
+        tokenSet = tokenizer2.setTokenList("program2.txt");
+
+        Parser parser2 = new Parser(tokenSet);
+        parser2.ProgramValidationProcess();
     }
 
 }
