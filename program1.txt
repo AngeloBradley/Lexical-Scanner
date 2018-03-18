@@ -1,6 +1,5 @@
 float test()
-{
-	float m, n, p;
+{       float m, n, p;
 	m = n + m - p;
 	p = m - n;
 }
