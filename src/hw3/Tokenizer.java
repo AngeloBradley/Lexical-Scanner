@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tokenizer {
-    
+
     public Tokenizer() {
 
     }
@@ -70,10 +70,9 @@ public class Tokenizer {
             }
 
         }
-         myData.close();
-         
-         return tokens;
+        myData.close();
+
+        return tokens;
     }
-    
-    
+
 }
