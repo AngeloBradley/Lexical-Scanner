@@ -4,8 +4,9 @@
 package hw3;
 
 /**
- *
- * @author abrad
+ * @author Angelo Bradley
+ * @author Alisea Wiggins
+ * @author Teon Parker
  */
 public enum Error {
     MISSING_OR_INVALID_INIT_KEYWORD(1), 

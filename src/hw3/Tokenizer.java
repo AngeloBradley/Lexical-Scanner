@@ -9,6 +9,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Angelo Bradley
+ * @author Alisea Wiggins
+ * @author Teon Parker
+ */
+
 public class Tokenizer {
 
     public Tokenizer() {

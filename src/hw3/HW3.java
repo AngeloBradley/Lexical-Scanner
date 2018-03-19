@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 /**
  * @author Angelo Bradley
+ * @author Alisea Wiggins
+ * @author Teon Parker
  */
 public class HW3 {
 

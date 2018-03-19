@@ -3,6 +3,11 @@
  */
 package hw3;
 
+/**
+ * @author Angelo Bradley
+ * @author Alisea Wiggins
+ * @author Teon Parker
+ */
 public class Token {
 
     //Properties

@@ -5,6 +5,11 @@ package hw3;
 
 import java.util.ArrayList;
 
+/**
+ * @author Angelo Bradley
+ * @author Alisea Wiggins
+ * @author Teon Parker
+ */
 public class Parser {
 
     private ArrayList<Token> tokens = new ArrayList<Token>();
