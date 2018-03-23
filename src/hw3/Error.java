@@ -25,17 +25,19 @@ public enum Error {
     STMTS_ERROR__MISSING_OR_INVALID_VAR(14),
     STMTS_ERROR__ILLEGAL_END_EXPRESSION(15),
     FUNCTION_ERROR_MISSING_CLOSING_BRACKET(16);
-    ; 
     
     private int errorIndex;
     
+    //Enum constructor used for associating a numerical value with each error
     private Error(int errorIndex){this.errorIndex = errorIndex;}
     
+    //Public method for getting an error based on an associated numerical value
     public static Error getError(int errorIndex){
         for(Error err : Error.values()){
             if(err.errorIndex == errorIndex) return err;
         }
         
+        //error thrown if number passed to method does not have an associated error
         throw new IllegalArgumentException("Undefined Error");
     }
 }

@@ -23,10 +23,13 @@ public class Tokenizer {
 
     public ArrayList<Token> setTokenList(String importedDoc) throws FileNotFoundException {
         File myFile = new File(importedDoc);
+        //The scanner will tokenize the string, generating tokens based on white-space separation...
         Scanner myData = new Scanner(myFile);
 
         ArrayList<Token> tokens = new ArrayList<Token>();
-
+        ///...what follows is a collection of processes for generating individual tokens where
+        //the scanner may have combined two or more tokens (ie "p;" is separated into "p" and ";")
+        //this is also where tokens are given an associative type for comparison by the parser
         while (myData.hasNext()) {
 
             String capture = myData.next();
