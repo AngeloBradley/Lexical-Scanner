@@ -9,10 +9,10 @@ package hw3;
  * @author Teon Parker
  */
 public enum Error {
-    MISSING_OR_INVALID_INIT_KEYWORD(1), 
-    INVALID_FUNCTION_NAME(2), 
+    MISSING_OR_INVALID_INIT_KEYWORD(1),
+    INVALID_FUNCTION_NAME(2),
     FUNCTION_ERROR__MISSING_OPENING_OR_CLOSING_PARENTHESES(3),
-    FUNCTION_ERROR__BODY_MISSING_OPENING_BRACKET(4), 
+    FUNCTION_ERROR__BODY_MISSING_OPENING_BRACKET(4),
     DECLARATION_ERROR__MISSING_OR_INVALID_KEYWORD(5),
     DECLARATION_ERROR__MISSING_LEFTHAND_VARIABLE(6),
     DECLARATION_ERROR__EXPECTED_SEMICOLON_OR_COMMA(7),
@@ -25,18 +25,22 @@ public enum Error {
     STMTS_ERROR__MISSING_OR_INVALID_VAR(14),
     STMTS_ERROR__ILLEGAL_END_EXPRESSION(15),
     FUNCTION_ERROR_MISSING_CLOSING_BRACKET(16);
-    
+
     private int errorIndex;
-    
+
     //Enum constructor used for associating a numerical value with each error
-    private Error(int errorIndex){this.errorIndex = errorIndex;}
-    
+    private Error(int errorIndex) {
+        this.errorIndex = errorIndex;
+    }
+
     //Public method for getting an error based on an associated numerical value
-    public static Error getError(int errorIndex){
-        for(Error err : Error.values()){
-            if(err.errorIndex == errorIndex) return err;
+    public static Error getError(int errorIndex) {
+        for (Error err : Error.values()) {
+            if (err.errorIndex == errorIndex) {
+                return err;
+            }
         }
-        
+
         //error thrown if number passed to method does not have an associated error
         throw new IllegalArgumentException("Undefined Error");
     }

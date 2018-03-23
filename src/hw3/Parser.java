@@ -23,8 +23,7 @@ public class Parser {
     }
 
     private boolean tokenSetValidation() {
-        //////////////////////////////////////////////////////////////
-        //This section checks the program header
+        /*------------------------------Program Header Check-------------------------------------*/
         if (!tokens.get(nextToken++).value.equals("float")) {
             return errorDetected(1);
         }
@@ -44,9 +43,8 @@ public class Parser {
         if (!tokens.get(nextToken++).value.equals("{")) {
             return errorDetected(4);
         }
-        ///////////////////////////////////////////////////////////////
-        //This section checks the body of the program 
-        //
+
+        /*---------------------------------Declare/Declarident Check-------------------------------------*/
         //The first token should be the keyword float following by 1 or more variables separated by commas
         if (!tokens.get(nextToken++).value.equals("float")) {
             return errorDetected(5);
@@ -57,12 +55,12 @@ public class Parser {
         }
         //If the next token, after the first variable, is not a semicolon then it MUST be a comma
         if (!tokens.get(nextToken).value.equals(";")) {
-            //If you found neither a semicolon nor a comma -> ERROR
+            //If neither a semicolon nor a comma is found -> ERROR
             if (!tokens.get(nextToken++).value.equals(",")) {
                 return errorDetected(7);
             } else {
                 //This while loop iterates through the list of variables (and commas) that make up
-                //the rest of the declaration (<declare>) statement
+                //the rest of the multi-declaration (<declarident>) statement
                 while (true) {
                     if (tokens.get(nextToken++).type != Type.IDENT) {
                         return errorDetected(8);
@@ -83,7 +81,7 @@ public class Parser {
                 }
             }
         }
-        
+        /*---------------------------------Statement(s) Check------------------------------------------*/
         //This section checks the <stmts> portion of the body where variables receive values
         //either by direct copying or as the result of some arithemtic operation
         while (true) {
@@ -101,7 +99,7 @@ public class Parser {
             }
 
             if (!tokens.get(nextToken).value.equals(";")) {
-                
+
                 //if a semicolon is not found after the second variable (<ident>)
                 //then what follows MUST be token of type ARITH ({+|-})
                 //if not -> ERROR
@@ -112,7 +110,7 @@ public class Parser {
                     //breaking if the end of the expression is reached
                     //throwing an error in a valid end of expression is not reached
                     while (true) {
-                     
+
                         if (tokens.get(nextToken++).type != Type.IDENT) {
                             return errorDetected(14);
                         }
@@ -123,7 +121,7 @@ public class Parser {
                         if (tokens.get(nextToken++).value.equals(";")) {
                             break;
                         } else {
-                            
+
                             return errorDetected(15);
                         }
                     }
@@ -134,19 +132,25 @@ public class Parser {
             }
         }
         //this reinforces that the program should end with a closing curly brace
-        if (!tokens.get(tokens.size()-1).value.equals("}")) {
+        if (!tokens.get(tokens.size() - 1).value.equals("}")) {
             return errorDetected(16);
         }
 
         return true;
     }
 
+    /*---------------------------------------------------------------------------*/
+ /*---------------------------------------------------------------------------*/
+    //PROGRAM VALIDATION PROCESS INITIALIZER 
     //This is the public method for initializing the token validation
     //It also prints to a console the result of the validation process
     public void ProgramValidationProcess() {
         System.out.println(tokenSetValidation() ? noErrorsDetected : errorDetected);
     }
 
+    /*---------------------------------------------------------------------------*/
+ /*---------------------------------------------------------------------------*/
+    //ERROR IDENTIFIER
     //This method is called if an error is detected
     //An error number is passed to it which it uses to retrieve and print the specific error
     private boolean errorDetected(int errorNum) {
